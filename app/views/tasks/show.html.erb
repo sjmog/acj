@@ -28,7 +28,7 @@
   <tbody>
     <% @task.codes.each do |code| %>
       <tr>
-        <td><%= code.pdf %></td>
+        <td><%= code.pdf.filename %></td>
       </tr>
     <% end %>
   </tbody>

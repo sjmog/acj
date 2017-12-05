@@ -15,7 +15,7 @@ class PdfUploader < CarrierWave::Uploader::Base
 
   def filename
     if file.present?
-      "#{file.filename}.#{file.extension}"
+      "#{file.filename}"
     end
   end
 end
