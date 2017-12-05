@@ -7,3 +7,31 @@
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>
+
+<%= form_tag({action: :create, controller: :codes}, multipart: true) do %>
+  <%= hidden_field :code, :task_id, value: @task.id %>
+  <%= file_field_tag 'files[]', multiple: true %>
+  <%= submit_tag 'Upload PDFs' %>
+<% end %>
+
+<% if @task.codes.any? %>
+
+<h1>Code in this task</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Filename</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @task.codes.each do |code| %>
+      <tr>
+        <td><%= code.pdf %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% end %>
