@@ -9,6 +9,13 @@
   </head>
 
   <body>
+    <header>
+      <% if current_coach %>
+      <%= link_to('Sign out', destroy_coach_session_path, method: :delete) %>
+      <% else %>
+        <%= link_to('Sign in', new_coach_session_path) %>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>

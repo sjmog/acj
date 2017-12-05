@@ -1,1 +1,4 @@
-%h1= "Welcome, #{current_coach.email}"
+- if current_coach
+  %h1= "Welcome, #{current_coach.email}"
+- else
+  = link_to('Sign up', new_coach_registration_path)
